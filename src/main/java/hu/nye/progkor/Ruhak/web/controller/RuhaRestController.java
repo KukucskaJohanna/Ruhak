@@ -1,4 +1,4 @@
-package hu.nye.progkor.Ruhak.web;
+package hu.nye.progkor.Ruhak.web.controller;
 
 import hu.nye.progkor.Ruhak.data.model.Ruhak;
 import hu.nye.progkor.Ruhak.service.RuhakService;
@@ -15,15 +15,18 @@ public class RuhaRestController {
     @Autowired
 
     public RuhaRestController(RuhakService ruhakService) {
+
         this.ruhakService = ruhakService;
     }
 
     @GetMapping("/{id}")
     public Ruhak getRuhakById(@PathVariable Long id) {
+
         return ruhakService.retrieveRuhakById(id);
     }
 @GetMapping
 public List<Ruhak> getAllRuhak() {
+
         return ruhakService.retrieveAllRuhak();
 }
     @PostMapping
@@ -33,6 +36,7 @@ public List<Ruhak> getAllRuhak() {
     //meglévőt módosítunk
     @PutMapping
     public Ruhak updateRuhak(@RequestBody Ruhak ruhak) {
+
         return ruhakService.updateRuhak(ruhak);
     }
 

@@ -8,33 +8,36 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service //delegál tovább a repositorynak
 public class DefaultRuhakService implements RuhakService {
-
     private final Repository<Ruhak, Long> ruhakRepository;
 @Autowired
     public DefaultRuhakService(Repository<Ruhak, Long> ruhakRepository) {
+
         this.ruhakRepository = ruhakRepository;
     }
 
     @Override
     public Ruhak createRuhak(Ruhak ruhak) {
-        return ruhakRepository.save(ruhak);
+
+    return ruhakRepository.save(ruhak);
     }
 
     @Override
     public Ruhak retrieveRuhakById(Long id) {
-        return ruhakRepository.getById(id);
+    return ruhakRepository.getById(id);
     }
 
     @Override
     public List<Ruhak> retrieveAllRuhak() {
-        return ruhakRepository.getAll();
+
+    return ruhakRepository.getAll();
     }
 
     @Override
     public Ruhak updateRuhak(Ruhak ruhak) {
-        return ruhakRepository.update(ruhak);
+
+    return ruhakRepository.update(ruhak);
     }
 
     @Override
